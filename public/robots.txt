@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://organicuniverse.in/sitemap.xml
