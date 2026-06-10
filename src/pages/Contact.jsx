@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Particles from '../components/Particles';
-import { submitContact } from '../lib/api';
 
 const reveal = (delay = 0) => ({
   initial: { opacity: 0, y: 50 },
@@ -49,11 +48,17 @@ export default function Contact() {
     setLoading(true);
     setError('');
     try {
-      await submitContact(form);
+      const body = new URLSearchParams({ 'form-name': 'contact', ...form }).toString();
+      const res = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+      if (!res.ok) throw new Error('Submission failed');
       setSubmitted(true);
       setForm(empty);
-    } catch (err) {
-      setError(err.message || 'Failed to submit. Please try again or call us directly.');
+    } catch {
+      setError('Failed to submit. Please try again or call us directly.');
     } finally {
       setLoading(false);
     }
@@ -167,7 +172,9 @@ export default function Contact() {
                       </motion.div>
                     )}
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} name="contact" data-netlify="true" netlify-honeypot="bot-field">
+                      <input type="hidden" name="form-name" value="contact" />
+                      <p style={{ display: 'none' }}><input name="bot-field" /></p>
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
                         <FloatField label="Full Name" name="name" value={form.name} onChange={handleChange} required placeholder="Your full name" />
                         <div style={{ width: 16 }} />
