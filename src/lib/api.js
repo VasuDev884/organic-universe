@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const BASE = 'https://organic-universe-backend.onrender.com/api';
 
 async function req(path, options = {}) {
   const token = localStorage.getItem('ou_admin_token');
@@ -34,9 +34,10 @@ export const updateService = (id, data) =>
   req(`/services/${id}`, { method: 'PUT', body: JSON.stringify(data) });
 export const deleteService = (id) =>
   req(`/services/${id}`, { method: 'DELETE' });
-
-// Clients
 export const getAdminClients = () => req('/clients');
-export const createClient = (data) => req('/clients', { method: 'POST', body: JSON.stringify(data) });
-export const updateClient = (id, data) => req(`/clients/${id}`, { method: 'PUT', body: JSON.stringify(data) });
-export const deleteClient = (id) => req(`/clients/${id}`, { method: 'DELETE' });
+export const createClient = (data) =>
+  req('/clients', { method: 'POST', body: JSON.stringify(data) });
+export const updateClient = (id, data) =>
+  req(`/clients/${id}`, { method: 'PUT', body: JSON.stringify(data) });
+export const deleteClient = (id) =>
+  req(`/clients/${id}`, { method: 'DELETE' });
