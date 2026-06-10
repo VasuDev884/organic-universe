@@ -1,4 +1,4 @@
-const BASE = 'https://organic-universe-backend.onrender.com/api';
+const BASE = import.meta.env.VITE_API_URL || 'https://organic-universe-backend.onrender.com/api';
 
 async function req(path, options = {}) {
   const token = localStorage.getItem('ou_admin_token');
