@@ -1,47 +1,18 @@
 const BASE = import.meta.env.VITE_API_URL;
-const REQUEST_TIMEOUT_MS = 15000;
 
 async function req(path, options = {}) {
   const token = localStorage.getItem('ou_admin_token');
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-
-  try {
-    const res = await fetch(`${BASE}${path}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        ...options.headers,
-      },
-      signal: controller.signal,
-      ...options,
-    });
-
-    const text = await res.text();
-    let data = null;
-
-    if (text) {
-      try {
-        data = JSON.parse(text);
-      } catch {
-        data = text;
-      }
-    }
-
-    if (!res.ok) {
-      const message = typeof data === 'string' ? data : data?.message || 'Request failed';
-      throw new Error(message);
-    }
-
-    return data;
-  } catch (error) {
-    if (error.name === 'AbortError') {
-      throw new Error('Request timed out. Please try again.');
-    }
-    throw error;
-  } finally {
-    clearTimeout(timeoutId);
-  }
+  const res = await fetch(`${BASE}${path}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...options.headers,
+    },
+    ...options,
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.message || 'Request failed');
+  return data;
 }
 
 export const login = (username, password) =>
