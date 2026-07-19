@@ -85,7 +85,17 @@ export default function Footer() {
             <motion.a href="https://wa.me/919736419705" target="_blank" rel="noreferrer"
               whileHover={{ scale:1.04, boxShadow:'0 8px 28px rgba(37,211,102,0.35)' }}
               style={{ display:'inline-flex', alignItems:'center', gap:8, background:'#25D366', color:'white', padding:'10px 20px', borderRadius:100, fontWeight:700, fontSize:13, marginTop:6, boxShadow:'0 4px 16px rgba(37,211,102,0.25)' }}>
-              💬 WhatsApp Us
+              <motion.svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width={16}
+                height={16}
+              >
+                <path
+                  d="M20.52 3.48A11.949 11.949 0 0 0 12 0C5.373 0 0 5.373 0 12c0 2.005.524 3.945 1.52 5.64L0 24l6.36-1.52A11.949 11.949 0 0 0 12 24c6.627 0 12-5.373 12-12a11.949 11.949 0 0 0-3.48-8.52zM12 22c-2.005 0-3.945-.524-5.64-1.52L2 22l1.52-4.36A11.949 11.949 0 0 1 2 12c0-6.627 5 .373-12 12-12s12 5.373 12 12-5.373 12-12 12zm6.36-7.64c-.32-.16-1.88-.92-2.17-1.02-.29-.11-.5-.16-.71.16s-.82 1.02-1 1.23c-.18.21-.36.24-.67.08s-1.25-.46-2.38-1.47c-.88-.78-1.48-1.74-1.65-1.95s-.14-.32 0-.47c.14-.14.32-.36.48-.54s.21-.28.32-.46c.11-.18.05-.34 0-.48s-.71-1.7-1-2.33c-.26-.61-.52-.53-.71-.54l-.6-.01c-.18 0-.47.07-.72.34s-1 1-1 2.44 1.03 2.83 1.17 3c.14.18 2 .31 2.72.37s2 .06 2.74 0c.74-.06 1.88-.77 2.14-1.51s0-1.35-.21-1.51z"
+                />
+              </motion.svg> WhatsApp Us
             </motion.a>
           </div>
         </div>

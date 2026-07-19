@@ -33,7 +33,7 @@ function DropdownMenu({ items, visible }) {
           transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
           style={{ position: 'absolute', top: 'calc(100% + 12px)', left: '50%', transform: 'translateX(-50%)', background: 'white', borderRadius: 20, padding: '10px 8px', boxShadow: '0 20px 60px rgba(15,28,16,0.18)', border: '1px solid #D4E8D4', minWidth: 220, zIndex: 200 }}
         >
-          <div style={{ position: 'absolute', top: -6, left: '50%', transform: 'translateX(-50%)', width: 12, height: 12, background: 'white', border: '1px solid #D4E8D4', borderBottom: 'none', borderRight: 'none', rotate: '45deg' }} />
+          <div style={{ position: 'absolute', top: -6, left: '20px', width: 12, height: 12, background: 'white', border: '1px solid #D4E8D4', borderBottom: 'none', borderRight: 'none', rotate: '45deg' }} />
           {items.map(item => (
             <Link key={item.path} to={item.path}
               style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 14px', borderRadius: 12, color: '#0F1C10', fontSize: 14, fontWeight: 500, transition: 'all 0.2s' }}

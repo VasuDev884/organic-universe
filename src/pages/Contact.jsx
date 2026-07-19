@@ -120,7 +120,20 @@ export default function Contact() {
               whileHover={{ scale: 1.04, boxShadow: '0 12px 40px rgba(37,211,102,0.4)' }}
               whileTap={{ scale: 0.97 }}
               style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: '#25D366', color: 'white', padding: '14px 28px', borderRadius: 100, fontWeight: 700, fontSize: 15, boxShadow: '0 8px 24px rgba(37,211,102,0.3)', marginTop: 8, textDecoration: 'none' }}
-            >💬 Chat on WhatsApp</motion.a>
+            >
+              <motion.svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width={16}
+                height={16}
+              >
+                <path
+                  d="M20.52 3.48A11.949 11.949 0 0 0 12 0C5.373 0 0 5.373 0 12c0 2.005.524 3.945 1.52 5.64L0 24l6.36-1.52A11.949 11.949 0 0 0 12 24c6.627 0 12-5.373 12-12a11.949 11.949 0 0 0-3.48-8.52zM12 22c-2.005 0-3.945-.524-5.64-1.52L2 22l1.52-4.36A11.949 11.949 0 0 1 2 12c0-6.627 5 .373-12 12-12s12 5.373 12 12-5.373 12-12 12zm6.36-7.64c-.32-.16-1.88-.92-2.17-1.02-.29-.11-.5-.16-.71.16s-.82 1.02-1 1.23c-.18.21-.36.24-.67.08s-1.25-.46-2.38-1.47c-.88-.78-1.48-1.74-1.65-1.95s-.14-.32 0-.47c.14-.14.32-.36.48-.54s.21-.28.32-.46c.11-.18.05-.34 0-.48s-.71-1.7-1-2.33c-.26-.61-.52-.53-.71-.54l-.6-.01c-.18 0-.47.07-.72.34s-1 1-1 2.44 1.03 2.83 1.17 3c.14.18 2 .31 2.72.37s2 .06 2.74 0c.74-.06 1.88-.77 2.14-1.51s0-1.35-.21-1.51z"
+                />
+              </motion.svg> 
+              Chat on WhatsApp
+            </motion.a>
 
             <motion.div {...reveal(0.3)} style={{ marginTop: 40, background: 'white', borderRadius: 24, padding: '28px', boxShadow: 'var(--shadow)', border: '1px solid #D4E8D4' }}>
               <h4 style={{ fontFamily: 'Cormorant Garamond', fontSize: 20, color: '#0F1C10', marginBottom: 18 }}>Office Hours</h4>

@@ -21,11 +21,11 @@ export default function BackToTop() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           style={{
             position: 'fixed', bottom: 100, right: 32, zIndex: 1999,
-            width: 46, height: 46, borderRadius: '50%',
+            width: 55, height: 55, borderRadius: '50%',
             background: 'linear-gradient(135deg, #1B5E20, #2E7D32)',
             border: 'none', cursor: 'pointer', color: 'white',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 4px 20px rgba(46,125,50,0.4)', fontSize: 18,
+            boxShadow: '0 4px 20px rgba(46,125,50,0.4)', fontSize: 20,
           }}
         >↑</motion.button>
       )}
